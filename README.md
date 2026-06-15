@@ -9,6 +9,9 @@
 
 To implement the Vigenere Cipher substitution technique using C program.
 
+### Name: Manickam Subbu
+### Reg No: 212223060147
+
 ## DESCRIPTION:
 
 To encrypt, a table of alphabets can be used, termed a tabula recta, Vigenère square,or Vigenère table. It consists of the alphabet written out 26 times in differnt rows, each
@@ -30,7 +33,41 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM
+```
+def vigenere(text, key, decrypt=False):
+    result = ""
+    key = key.upper()
+    text = text.upper()
+
+    for i in range(len(text)):
+        shift = ord(key[i % len(key)]) - 65
+
+        if decrypt:
+            shift = 26 - shift
+
+        val = (ord(text[i]) - 65 + shift) % 26
+        result += chr(val + 65)
+
+    return result
+
+text = input("Enter plain text: ")
+key = input("Enter key: ")
+
+enc = vigenere(text, key)
+print("Encrypted Message:", enc)
+
+dec = vigenere(enc, key, True)
+print("Decrypted Message:", dec)
+```
+
+
+
 
 ## OUTPUT
 
+<img width="1919" height="800" alt="image" src="https://github.com/user-attachments/assets/d1ebfb35-7ed1-4954-898f-d9ae972711f7" />
+
+
+
 ## RESULT
+         The program is executed successfully
